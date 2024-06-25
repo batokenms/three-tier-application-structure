@@ -1,0 +1,30 @@
+# Steps to Build and Run
+
+docker-compose up --build
+
+
+# Initialize the database:
+
+Once the MySQL container is running, you can initialize the database with the sample user data. You can do this by connecting to the MySQL container and running the SQL commands:
+
+
+docker exec -it <mysql_container_id> mysql -u root -p
+
+
+# Enter the password (password) and then run:
+
+CREATE DATABASE users_db;
+USE users_db;
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+-- Insert a sample user (password is hashed using bcrypt)
+INSERT INTO users (username, password) VALUES ('user', '$2b$10$E9g91h8XQp8KQdCFSW8rUukZ/9a.w2a1qvH8DQmDw6cCIelMw8vaK');  -- password: pass
+
+
+# Access the application:
+
+The frontend will be accessible at http://localhost:8080.
+The backend API will be accessible at [http://localhost:3000](http://localhost:300
