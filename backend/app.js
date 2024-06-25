@@ -53,5 +53,5 @@ app.post('/login', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server is running on http://18.216.16.201:${port}`);
+    console.log(`Server is running on http://3.133.143.230:${port}`);
 });
